@@ -11,6 +11,12 @@
 
     <ItemGroup>
         <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.1"/>
+        <PackageReference Include="Aspire.Hosting.MongoDB" Version="8.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KoggoInvestments.Api\KoggoInvestments.Api.csproj" />
+      <ProjectReference Include="..\KoggoInvestments.Worker\KoggoInvestments.Worker.csproj" />
     </ItemGroup>
 
 </Project>
