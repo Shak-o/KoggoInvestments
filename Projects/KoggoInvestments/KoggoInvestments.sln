@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CF7F5032-F2D1-493E-AD56-5E86060DBF50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{15ACE3D2-0DCF-4AFE-9FD5-D2E7BC19D9D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{99D6067C-2BF6-42DC-A796-8402EAEB5729}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{025310A2-E4D4-4CAD-AA7A-BC8641F24350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Api", "KoggoInvestments.Api\KoggoInvestments.Api.csproj", "{AAC89561-1D6E-4F4C-A810-D3EFDD974C14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Worker", "KoggoInvestments.Worker\KoggoInvestments.Worker.csproj", "{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.AppHost", "KoggoInvestments.AppHost\KoggoInvestments.AppHost.csproj", "{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.ServiceDefaults", "KoggoInvestments.ServiceDefaults\KoggoInvestments.ServiceDefaults.csproj", "{74C92A8E-A202-458E-8C61-33842EFA0308}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAC89561-1D6E-4F4C-A810-D3EFDD974C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC89561-1D6E-4F4C-A810-D3EFDD974C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC89561-1D6E-4F4C-A810-D3EFDD974C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC89561-1D6E-4F4C-A810-D3EFDD974C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C92A8E-A202-458E-8C61-33842EFA0308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C92A8E-A202-458E-8C61-33842EFA0308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C92A8E-A202-458E-8C61-33842EFA0308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C92A8E-A202-458E-8C61-33842EFA0308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AAC89561-1D6E-4F4C-A810-D3EFDD974C14} = {99D6067C-2BF6-42DC-A796-8402EAEB5729}
+		{4A2E58DC-AD6F-4137-9BFE-C7A16B1DFB83} = {99D6067C-2BF6-42DC-A796-8402EAEB5729}
+		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA} = {025310A2-E4D4-4CAD-AA7A-BC8641F24350}
+		{74C92A8E-A202-458E-8C61-33842EFA0308} = {025310A2-E4D4-4CAD-AA7A-BC8641F24350}
+	EndGlobalSection
+EndGlobal
