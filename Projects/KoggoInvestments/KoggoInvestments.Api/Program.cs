@@ -1,3 +1,5 @@
+using KoggoInvestments.Application;
+using KoggoInvestments.Persistence;
 using KoggoInvestments.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.AddServiceDefaults();
+builder.AddApplication();
+builder.AddPersistence();
 
 builder.Configuration.AddJsonFile("appsecrets.json", optional: false, reloadOnChange: true);
 

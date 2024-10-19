@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\KoggoInvestments.Persistence\KoggoInvestments.Persistence.csproj" />
       <ProjectReference Include="..\KoggoInvestments.ServiceDefaults\KoggoInvestments.ServiceDefaults.csproj" />
     </ItemGroup>
 

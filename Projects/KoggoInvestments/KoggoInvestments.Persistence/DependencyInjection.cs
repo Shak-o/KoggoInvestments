@@ -9,6 +9,7 @@ public static class DependencyInjection
 {
     public static IHostApplicationBuilder AddPersistence(this IHostApplicationBuilder builder)
     {
+        builder.AddMongoDBClient("KoggoDb");
         builder.Services.AddScoped<IStockDataRepository, StockDataRepository>();
         
         return builder;
