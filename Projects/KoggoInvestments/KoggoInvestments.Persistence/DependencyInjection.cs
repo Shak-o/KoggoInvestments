@@ -11,6 +11,7 @@ public static class DependencyInjection
     {
         builder.AddMongoDBClient("KoggoDb");
         builder.Services.AddScoped<IStockDataRepository, StockDataRepository>();
+        builder.Services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
         
         return builder;
     }
