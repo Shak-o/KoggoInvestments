@@ -4,9 +4,9 @@ using MediatR;
 
 namespace KoggoInvestments.Application.Stocks;
 
-public class GetStocksQueryHandler(IStockDataRepository repository) : IRequestHandler<GetStocksQuery, List<StockDetails>>
+public class GetStocksQueryHandler(IStockDataRepository repository) : IRequestHandler<GetStocksQuery, List<StockDetailViewModel>>
 {
-    public async Task<List<StockDetails>> Handle(GetStocksQuery request, CancellationToken cancellationToken)
+    public async Task<List<StockDetailViewModel>> Handle(GetStocksQuery request, CancellationToken cancellationToken)
     {
         return await repository.GetStockDataAsync();
     }

@@ -6,18 +6,18 @@ namespace KoggoInvestments.Persistence.Repositories;
 
 public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepository
 {
-    public async Task<List<StockDetails>> GetStockDataAsync()
+    public async Task<List<StockDetailViewModel>> GetStockDataAsync()
     {
         var db = mongoClient.GetDatabase("KoggoDb");
-        var collection = db.GetCollection<StockDetails>("StockDetails");
+        var collection = db.GetCollection<StockDetailViewModel>("StockDetails");
         var result = await collection.Find(s => true).ToListAsync();
         return result;
     }
 
-    public async Task SaveStockDataAsync(StockDetails stockDetails)
+    public async Task SaveStockDataAsync(StockDetailViewModel stockDetails)
     {
         var db = mongoClient.GetDatabase("KoggoDb");
-        var collection = db.GetCollection<StockDetails>("StockDetails");
+        var collection = db.GetCollection<StockDetailViewModel>("StockDetails");
         
         await collection.InsertOneAsync(stockDetails);
     }

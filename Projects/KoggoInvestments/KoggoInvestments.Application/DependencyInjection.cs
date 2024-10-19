@@ -13,12 +13,18 @@ public static class DependencyInjection
         
         var key = builder.Configuration["ApiKey"];
         
-        builder.Services.AddHttpClient("AuthManagerClient",
+        builder.Services.AddHttpClient("FinApi",
             static client =>
             {
                 client.BaseAddress = new("https+http://FinnApi");
             }).UseWithRestEaseClient(new UseWithRestEaseClientOptions<IFinnHubApi>() {InstanceConfigurer = x => x.ApiKey = key!});
 
+        builder.Services.AddHttpClient("PolyApi",
+            static client =>
+            {
+                client.BaseAddress = new("https+http://PolyApi");
+            }).UseWithRestEaseClient(new UseWithRestEaseClientOptions<IPolygonApi>());
+        
         return builder;
     }
 }

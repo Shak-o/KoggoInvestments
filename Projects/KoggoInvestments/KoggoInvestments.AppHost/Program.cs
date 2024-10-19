@@ -8,6 +8,7 @@ builder.AddProject<Projects.KoggoInvestments_Api>("Api")
 
 builder.AddProject<Projects.KoggoInvestments_Worker>("Worker")
     .WithReference(mongo)
-    .WithReference("FinnApi", new Uri("https://finnhub.io/"));
+    .WithReference("FinnApi", new Uri("https://finnhub.io/"))
+    .WithReference("PolyApi", new Uri("https://api.polygon.io/"));
 
 builder.Build().Run();

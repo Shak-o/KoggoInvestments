@@ -3,7 +3,7 @@ using MediatR;
 
 namespace KoggoInvestments.Application.Stocks;
 
-public class GetStocksQuery : IRequest<List<StockDetails>>
+public class GetStocksQuery : IRequest<List<StockDetailViewModel>>
 {
     
 }

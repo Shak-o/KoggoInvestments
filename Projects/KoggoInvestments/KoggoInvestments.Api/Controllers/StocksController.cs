@@ -10,5 +10,5 @@ namespace KoggoInvestments.Api.Controllers;
 public class StocksController(IMediator mediator) : ControllerBase
 {
     [HttpGet("details")]
-    public Task<List<StockDetails>> GetDetails() => mediator.Send(new GetStocksQuery());
+    public Task<List<StockDetailViewModel>> GetDetails() => mediator.Send(new GetStocksQuery());
 }
