@@ -21,4 +21,9 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
         
         await collection.InsertOneAsync(stockDetails);
     }
+
+    public Task SavePolygonStockDataAsync(List<Stock> stocks, string stockIdentifier)
+    {
+        throw new NotImplementedException();
+    }
 }
