@@ -1,6 +1,8 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var mongo = builder.AddMongoDB("Mongo").AddDatabase("KoggoDb");
+var mongo = builder.AddMongoDB("Mongo")
+    .WithDataBindMount("/data")
+    .AddDatabase("KoggoDb");
 
 
 builder.AddProject<Projects.KoggoInvestments_Api>("Api")

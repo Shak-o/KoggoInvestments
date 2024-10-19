@@ -14,6 +14,15 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
         return result;
     }
 
+    public async Task<bool> CheckIfEmptyAsync()
+    {
+        var db = mongoClient.GetDatabase("KoggoDb");
+        var collection = db.GetCollection<StockDetailViewModel>("StockDetails");
+        var filter = Builders<StockDetailViewModel>.Filter.Empty; // This means no filtering, we want all documents
+        var count = await collection.CountDocumentsAsync(filter);
+        return count == 0;
+    }
+
     public async Task SaveStockDataAsync(StockDetailViewModel stockDetails)
     {
         var db = mongoClient.GetDatabase("KoggoDb");
@@ -22,7 +31,15 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
         await collection.InsertOneAsync(stockDetails);
     }
 
-    public Task SavePolygonStockDataAsync(List<Stock> stocks, string stockIdentifier)
+    public async Task SavePolygonStockDataAsync(List<StockBarInfo> stocks, string stockIdentifier)
+    {
+        var db = mongoClient.GetDatabase("KoggoDb");
+        var collection = db.GetCollection<StockBarInfo>(stockIdentifier);
+        
+        await collection.InsertManyAsync(stocks);
+    }
+
+    public Task GetStockBarInfoAsync(string stockIdentifier, int quantity, int page)
     {
         throw new NotImplementedException();
     }

@@ -5,7 +5,10 @@ namespace KoggoInvestments.Application.RepositoryInterfaces;
 public interface IStockDataRepository
 {
     Task<List<StockDetailViewModel>> GetStockDataAsync();
+    Task<bool> CheckIfEmptyAsync();
     Task SaveStockDataAsync(StockDetailViewModel stockData);
     
-    Task SavePolygonStockDataAsync(List<Stock> stocks, string stockIdentifier);
+    Task SavePolygonStockDataAsync(List<StockBarInfo> stocks, string stockIdentifier);
+    
+    Task GetStockBarInfoAsync(string stockIdentifier, int quantity, int page);
 }

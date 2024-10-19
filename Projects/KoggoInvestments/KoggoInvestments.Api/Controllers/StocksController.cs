@@ -11,4 +11,6 @@ public class StocksController(IMediator mediator) : ControllerBase
 {
     [HttpGet("details")]
     public Task<List<StockDetailViewModel>> GetDetails() => mediator.Send(new GetStocksQuery());
+    
+    // TODO: implement get stock changes by configurtaion -> MVP version get changes by comparison current price vs your requested change check
 }
