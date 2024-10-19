@@ -13,10 +13,10 @@ services:
       - mongo_data:/data/db
 
   koggo-worker:
-    image: koggo-investments-worker
     build:
-      context: .
-      dockerfile: ../KoggoInvestments.Worker/Dockerfile
+      context: ./KoggoInvestments.Worker
+      dockerfile: Dockerfile
+    container_name: koggo-worker
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     depends_on:
@@ -25,10 +25,10 @@ services:
       - koggo-network
 
   koggo-api:
-    image: koggo-investments-api
     build:
-      context: .
-      dockerfile: ../KoggoInvestments.Api/Dockerfile
+      context: ./KoggoInvestments.Api
+      dockerfile: Dockerfile
+    container_name: koggo-api
     ports:
       - "8080:8080"
       - "8081:8081"
