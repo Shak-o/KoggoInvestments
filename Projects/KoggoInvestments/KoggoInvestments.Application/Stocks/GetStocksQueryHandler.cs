@@ -8,6 +8,13 @@ public class GetStocksQueryHandler(IStockDataRepository repository) : IRequestHa
 {
     public async Task<List<StockDetailViewModel>> Handle(GetStocksQuery request, CancellationToken cancellationToken)
     {
-        return await repository.GetStockDataAsync();
+        var result = await repository.GetStockDataAsync();
+        result.ForEach(x =>
+        {
+            x.Price = Math.Round(x.Price, 2);
+            x.Diff = Math.Round(x.Diff, 2);
+        });
+
+        return result;
     }
 }
