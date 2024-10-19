@@ -1,17 +1,20 @@
-﻿using KoggoInvestments.UI.Services;
+﻿using KoggoInvestments.Ui.Notifications;
+using KoggoInvestments.UI.Services;
 
 namespace KoggoInvestments.Ui
 {
     public partial class App : Application
     {
         private PeriodicService _periodicService;
+        private readonly INotificationManagerService notificationManagerService;
 
-        public App()
+        public App(INotificationManagerService notificationManagerService)
         {
             InitializeComponent();
 
             MainPage = new AppShell();
-            _periodicService = new PeriodicService();
+            _periodicService = new PeriodicService(notificationManagerService);
+            notificationManagerService = notificationManagerService;
         }
 
         protected override void OnStart()

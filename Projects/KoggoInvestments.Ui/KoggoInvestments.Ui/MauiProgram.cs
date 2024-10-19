@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using KoggoInvestments.Ui.Notifications;
+using Microsoft.Extensions.Logging;
 
 namespace KoggoInvestments.Ui
 {
@@ -17,6 +18,9 @@ namespace KoggoInvestments.Ui
 
 #if DEBUG
     		builder.Logging.AddDebug();
+#endif
+#if ANDROID
+            builder.Services.AddSingleton<INotificationManagerService, KoggoInvestments.Ui.Platforms.Android.NotificationManagerService>();
 #endif
 
             return builder.Build();
