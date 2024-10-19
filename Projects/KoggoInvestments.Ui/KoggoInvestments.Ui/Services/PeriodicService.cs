@@ -46,7 +46,7 @@ namespace KoggoInvestments.UI.Services
 
                 if (true)
                 {
-                    notificationManagerService.SendNotification("Service Result", "NOTIFICATION");
+                    notificationManagerService.SendNotification("mesiji mogivida **", "Alert");
                 }
 
             }

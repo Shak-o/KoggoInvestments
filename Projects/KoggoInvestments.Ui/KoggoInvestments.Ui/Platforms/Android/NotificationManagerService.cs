@@ -70,7 +70,9 @@ namespace KoggoInvestments.Ui.Platforms.Android
             NotificationCompat.Builder builder = new NotificationCompat.Builder(Platform.AppContext, channelId)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
-                .SetContentText(message);
+                .SetContentText(message)
+                .SetLargeIcon(BitmapFactory.DecodeResource(Platform.AppContext.Resources, Resource.Drawable.dotnet_logo))
+                .SetSmallIcon(Resource.Drawable.message_small); 
 
             Notification notification = builder.Build();
             compatManager.Notify(messageId++, notification);
