@@ -13,7 +13,7 @@ COPY ./KoggoInvestments.Persistence.csproj KoggoInvestments.Persistence/
 COPY ./KoggoInvestments.Application.csproj KoggoInvestments.Application/
 COPY ./KoggoInvestments.Domain.csproj KoggoInvestments.Domain/
 COPY ./KoggoInvestments.ServiceDefaults.csproj KoggoInvestments.ServiceDefaults/
-RUN dotnet restore "KoggoInvestments.Worker/KoggoInvestments.Worker.csproj"
+RUN dotnet restore "./KoggoInvestments.Worker.csproj"
 
 # Copy the rest of the files and build the app
 COPY . .
