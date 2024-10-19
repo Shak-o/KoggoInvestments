@@ -14,11 +14,14 @@ public class SetStockInfoCommandHandler(IFinnHubApi finnHubApi, IStockDataReposi
         var stockSettings = configuration.GetSection("StockSettings").Get<StockSettings>();
         if (stockSettings == null)
             throw new ArgumentNullException(nameof(stockSettings));
-        
+        var id = 0;
         foreach (var item in stockSettings.TestStocks)
         {
             var finnResult = await finnHubApi.GetStockInfoAsync(token: finnHubApi.ApiKey, item);
-            await stockDataRepository.SaveStockDataAsync(finnResult.Result[0]);
+            var stockInfo = finnResult.Result[0];
+            stockInfo.Id = id;
+            await stockDataRepository.SaveStockDataAsync(stockInfo);
+            id++;
         }
         
         return Unit.Value;

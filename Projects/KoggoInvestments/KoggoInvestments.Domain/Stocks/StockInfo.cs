@@ -8,6 +8,7 @@ public record StockInfo
 
 public record StockDetails
 {
+    public int Id { get; set; }
     public required string Description { get; set; }
     public required string DisplaySymbol { get; set; }
     public required string Symbol { get; set; }
