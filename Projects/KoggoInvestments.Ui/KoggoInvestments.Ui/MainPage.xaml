@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KoggoInvestments.Ui.MainPage">
 
-    <StackLayout>
+    <VerticalStackLayout x:Name="verticalStackLayout">
         <WebView x:Name="WikiView"
                  VerticalOptions="FillAndExpand"
                  HorizontalOptions="FillAndExpand"
                  Source="https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%A6%E1%83%9D%E1%83%94%E1%83%91%E1%83%98"/>
-    </StackLayout>
+    </VerticalStackLayout>
 </ContentPage>
+   

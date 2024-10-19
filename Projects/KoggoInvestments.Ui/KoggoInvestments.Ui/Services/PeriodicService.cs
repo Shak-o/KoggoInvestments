@@ -1,11 +1,20 @@
 ﻿//using Plugin.LocalNotification;
 
+using KoggoInvestments.Ui;
+using KoggoInvestments.Ui.Notifications;
+
 namespace KoggoInvestments.UI.Services
 {
     public class PeriodicService
     {
+        private readonly INotificationManagerService notificationManagerService;
         private bool _isRunning;
 
+        public PeriodicService(INotificationManagerService notificationManagerService)
+        {
+            //this.notificationManagerService = Application.Current?.MainPage?.Handler?.MauiContext?.Services.GetService<INotificationManagerService>(); ;
+            this.notificationManagerService = notificationManagerService;
+        }
         public void StartService()
         {
             _isRunning = true;
@@ -34,6 +43,12 @@ namespace KoggoInvestments.UI.Services
                 //{
                 //    SendPushNotification("Service Result", "NOTIFICATION");
                 //}
+
+                if (true)
+                {
+                    notificationManagerService.SendNotification("mesiji mogivida **", "Alert");
+                }
+
             }
             catch (Exception ex)
             {
