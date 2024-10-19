@@ -1,7 +1,7 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var mongo = builder.AddMongoDB("Mongo", port: 52158)
-    .WithDataBindMount("/data")
+    .WithDataBindMount("/mongodata")
     .AddDatabase("KoggoDb");
 
 

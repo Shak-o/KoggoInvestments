@@ -4,7 +4,7 @@ using MediatR;
 
 namespace KoggoInvestments.Application.Stocks;
 
-public class CheckStatusCommandHandler (IConfigurationRepository repository) : IRequestHandler<CheckStatusCommand, List<CheckStatusResponse>>
+public class CheckStatusCommandHandler (IConfigurationRepository repository, IStockDataRepository stockRepo) : IRequestHandler<CheckStatusCommand, List<CheckStatusResponse>>
 {
     public async Task<List<CheckStatusResponse>> Handle(CheckStatusCommand request, CancellationToken cancellationToken)
     {
@@ -12,7 +12,7 @@ public class CheckStatusCommandHandler (IConfigurationRepository repository) : I
         
         foreach (var configuration in configurations)
         {
-            
+            var stockInfo = await stockRepo.GetStockBarInfoAsync(configuration.StockIdentifier);
         }
         // get all configurations
         // foreach
@@ -20,6 +20,7 @@ public class CheckStatusCommandHandler (IConfigurationRepository repository) : I
         // check rules
         // set result
         // save 
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        return null;
     }
 }
