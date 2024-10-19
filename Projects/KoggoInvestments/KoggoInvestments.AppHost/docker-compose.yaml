@@ -1,4 +1,4 @@
-﻿version: '3.8'
+﻿version: '3.9'
 
 services:
   mongo:
@@ -15,6 +15,7 @@ services:
   koggo-worker:
     build:
       context: ./KoggoInvestments.Worker
+      target: final
       dockerfile: Dockerfile
     container_name: koggo-worker
     environment:
@@ -27,6 +28,7 @@ services:
   koggo-api:
     build:
       context: ./KoggoInvestments.Api
+      target: final
       dockerfile: Dockerfile
     container_name: koggo-api
     ports:
