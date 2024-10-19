@@ -11,11 +11,13 @@ public static class DependencyInjection
     {
         builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly));
         
+        var key = builder.Configuration["ApiKey"];
+        
         builder.Services.AddHttpClient("AuthManagerClient",
             static client =>
             {
                 client.BaseAddress = new("https+http://FinnApi");
-            }).UseWithRestEaseClient<IFinnHubApi>();
+            }).UseWithRestEaseClient(new UseWithRestEaseClientOptions<IFinnHubApi>() {InstanceConfigurer = x => x.ApiKey = key!});
 
         return builder;
     }
