@@ -57,8 +57,9 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
 
             lastId = firstBarInfo.Id;
 
+            var maxId = await GetMaxAccessIdAsync();
             await accessorCollection.InsertOneAsync(new AccessModel()
-                { StockIdentifier = stockIdentifier, LastAccessedId = lastId });
+                { Id = ++maxId, StockIdentifier = stockIdentifier, LastAccessedId = lastId });
 
             return firstBarInfo;
         }
@@ -75,5 +76,18 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
         await accessorCollection.UpdateOneAsync(filter, update);
         
         return barInfo;
+    }
+    
+    private async Task<int> GetMaxAccessIdAsync()
+    {
+        var sort = Builders<AccessModel>.Sort.Descending(x => x.Id);
+        var collectionName = $"{nameof(AccessModel)}";
+        var collection = _db.GetCollection<AccessModel>(collectionName);
+        var result = await collection.Find(s => true)
+            .Sort(sort)
+            .Limit(1)
+            .FirstOrDefaultAsync();
+
+        return result?.Id ?? 0;
     }
 }
