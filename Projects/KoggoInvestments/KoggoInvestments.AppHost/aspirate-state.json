@@ -1,0 +1,26 @@
+{
+  "projectPath": ".",
+  "outputPath": "aspirate-output",
+  "containerImageTags": [
+    "latest"
+  ],
+  "containerBuilder": "docker",
+  "outputFormat": "compose",
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "includeDashboard": false,
+  "secrets": {
+    "salt": "BMoW9ccLxVGm3\u002BDF",
+    "hash": "QaqIETARgqqF7sA8yS7ROTjtvj8My7T1VNJzI2hFzbY=",
+    "secrets": {
+      "Mongo": {},
+      "KoggoDb": {},
+      "Api": {
+        "ConnectionStrings__KoggoDb": "BMoW9ccLxVGm3\u002BDFF1eC7VlA7Ggv6TVSSbkUM4m9ilIUDD1eGKBTEPPQLyXJbtERoitZYX1AyxaG"
+      },
+      "Worker": {
+        "ConnectionStrings__KoggoDb": "BMoW9ccLxVGm3\u002BDFF1eC7VlA7Ggv6TVSSbkUM4m9ilIUDD1eGKBTEPPQLyXJbtERoitZYX1AyxaG"
+      }
+    }
+  },
+  "processAllComponents": true
+}
