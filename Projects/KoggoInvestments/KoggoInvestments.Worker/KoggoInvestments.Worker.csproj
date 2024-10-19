@@ -12,6 +12,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\KoggoInvestments.Persistence\KoggoInvestments.Persistence.csproj" />
       <ProjectReference Include="..\KoggoInvestments.ServiceDefaults\KoggoInvestments.ServiceDefaults.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsecrets.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 </Project>

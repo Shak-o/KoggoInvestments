@@ -5,6 +5,9 @@ namespace KoggoInvestments.Application.ApiInterfaces;
 
 public interface IFinnHubApi
 {
-    [Get("/v1/stock/symbol")]
-    Task<List<StockInfo>> GetStockInfoAsync();
+    [Query("token")]
+    public string ApiKey { get; set; }
+    
+    [Get("api/v1/stock/symbol?exchange=US")]
+    Task<List<StockInfo>> GetStockInfoAsync([Query] string token);
 }

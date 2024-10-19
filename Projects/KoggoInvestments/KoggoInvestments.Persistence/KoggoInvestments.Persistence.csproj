@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KoggoInvestments.Application\KoggoInvestments.Application.csproj" />
+    </ItemGroup>
+
 </Project>
