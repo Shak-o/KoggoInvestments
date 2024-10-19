@@ -64,6 +64,8 @@ public class SetStockInfoCommandHandler(
         var ticker = stockInfo.Symbol.ToUpper();
         var apiKey = configuration["PolygonApiKey"];
         var polygonStockData = await polygonApi.GetStockAsync(ticker, apiKey!);
+        var counter = 0;
+        polygonStockData.Results.ForEach(x => x.Id = ++counter);
         await stockDataRepository.SavePolygonStockDataAsync(polygonStockData.Results, ticker);
         
         var last = polygonStockData.Results.Last();

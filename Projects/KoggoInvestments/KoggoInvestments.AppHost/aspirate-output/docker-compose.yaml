@@ -1,0 +1,35 @@
+services:
+  Mongo:
+    container_name: "Mongo"
+    image: "docker.io/library/mongo:7.0"
+    ports:
+    - target: 27017
+      published: 52158
+    restart: unless-stopped
+  Api:
+    container_name: "Api"
+    image: "api:latest"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
+      ConnectionStrings__KoggoDb: "mongodb://Mongo:52158/KoggoDb"
+    ports:
+    - target: 8080
+      published: 10000
+    - target: 8443
+      published: 10001
+    restart: unless-stopped
+  Worker:
+    container_name: "Worker"
+    image: "worker:latest"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ConnectionStrings__KoggoDb: "mongodb://Mongo:52158/KoggoDb"
+      services__FinnApi__default__0: "https://finnhub.io/"
+      services__PolyApi__default__0: "https://api.polygon.io/"
+    restart: unless-stopped

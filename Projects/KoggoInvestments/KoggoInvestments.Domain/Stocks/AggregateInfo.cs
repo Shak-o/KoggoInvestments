@@ -4,6 +4,7 @@ namespace KoggoInvestments.Domain.Stocks;
 
 public class StockBarInfo
 {
+    public int Id { get; set; }
     [JsonProperty("v")]
     public long Volume { get; set; }
     [JsonProperty("vw")]

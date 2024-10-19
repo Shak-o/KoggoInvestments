@@ -9,8 +9,6 @@ builder.AddServiceDefaults();
 builder.AddPersistence();
 builder.AddApplication();
 
-
-builder.Services.AddHostedService<Worker>();
 builder.Services.AddHostedService<StockInfoSyncer>();
 
 var host = builder.Build();
