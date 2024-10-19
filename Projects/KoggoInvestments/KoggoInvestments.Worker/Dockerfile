@@ -8,11 +8,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # COPY with correct relative paths
-COPY KoggoInvestments.Worker/KoggoInvestments.Worker.csproj KoggoInvestments.Worker/
-COPY KoggoInvestments.Persistence/KoggoInvestments.Persistence.csproj KoggoInvestments.Persistence/
-COPY KoggoInvestments.Application/KoggoInvestments.Application.csproj KoggoInvestments.Application/
-COPY KoggoInvestments.Domain/KoggoInvestments.Domain.csproj KoggoInvestments.Domain/
-COPY KoggoInvestments.ServiceDefaults/KoggoInvestments.ServiceDefaults.csproj KoggoInvestments.ServiceDefaults/
+COPY ./KoggoInvestments.Worker.csproj KoggoInvestments.Worker/
+COPY ./KoggoInvestments.Persistence.csproj KoggoInvestments.Persistence/
+COPY ./KoggoInvestments.Application.csproj KoggoInvestments.Application/
+COPY ./KoggoInvestments.Domain.csproj KoggoInvestments.Domain/
+COPY ./KoggoInvestments.ServiceDefaults.csproj KoggoInvestments.ServiceDefaults/
 RUN dotnet restore "KoggoInvestments.Worker/KoggoInvestments.Worker.csproj"
 
 # Copy the rest of the files and build the app
