@@ -10,5 +10,5 @@ public interface IStockDataRepository
     
     Task SavePolygonStockDataAsync(List<StockBarInfo> stocks, string stockIdentifier);
     
-    Task GetStockBarInfoAsync(string stockIdentifier, int quantity, int page);
+    Task<StockBarInfo> GetStockBarInfoAsync(string stockIdentifier, int id);
 }

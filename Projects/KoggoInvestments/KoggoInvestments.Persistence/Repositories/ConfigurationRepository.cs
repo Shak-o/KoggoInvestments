@@ -9,7 +9,7 @@ public class ConfigurationRepository(IMongoClient mongoClient) : IConfigurationR
     private readonly IMongoDatabase _database = mongoClient.GetDatabase("KoggoDb");
     public async Task AddConfigurationAsync(NotificationConfiguration notificationConfiguration)
     {
-        var collectionName = $"{nameof(NotificationConfiguration)}_{notificationConfiguration.StockIdentifier}";
+        var collectionName = $"{nameof(NotificationConfiguration)}";
         var collection = _database.GetCollection<NotificationConfiguration>(collectionName);
         
         await collection.InsertOneAsync(notificationConfiguration);
@@ -18,7 +18,7 @@ public class ConfigurationRepository(IMongoClient mongoClient) : IConfigurationR
     public async Task<int> GetMaxIdAsync(string stockIdentifier)
     {
         var sort = Builders<NotificationConfiguration>.Sort.Descending(x => x.Id);
-        var collectionName = $"{nameof(NotificationConfiguration)}_{stockIdentifier}";
+        var collectionName = $"{nameof(NotificationConfiguration)}";
         var collection = _database.GetCollection<NotificationConfiguration>(collectionName);
         var result = await collection.Find(s => true)
             .Sort(sort)
@@ -26,5 +26,13 @@ public class ConfigurationRepository(IMongoClient mongoClient) : IConfigurationR
             .FirstOrDefaultAsync();
 
         return result?.Id ?? 0;
+    }
+
+    public async Task<List<NotificationConfiguration>> GetAllConfigurationsAsync()
+    {
+        var collection = _database.GetCollection<NotificationConfiguration>(nameof(NotificationConfiguration));
+        
+        var result = await collection.Find(_ => true).ToListAsync();
+        return result;
     }
 }

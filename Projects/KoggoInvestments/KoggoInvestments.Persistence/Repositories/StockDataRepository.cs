@@ -36,8 +36,18 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
         await collection.InsertManyAsync(stocks);
     }
 
-    public Task GetStockBarInfoAsync(string stockIdentifier, int quantity, int page)
+    public async Task<StockBarInfo> GetStockBarInfoAsync(string stockIdentifier, int index)
     {
+        var collection = _db.GetCollection<StockBarInfo>(stockIdentifier);
+        var sort = Builders<StockBarInfo>.Sort.Descending(x => x.Timestamp);
+        
+        
+        var lastTimeStamp = collection.AsQueryable().Last().Timestamp;
+        var result = await collection.Find(s => true)
+            .Sort(sort)
+            .Limit(1)
+            .FirstOrDefaultAsync();
+        
         throw new NotImplementedException();
     }
 }
