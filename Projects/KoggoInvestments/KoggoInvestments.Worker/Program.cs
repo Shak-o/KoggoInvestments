@@ -1,3 +1,4 @@
+using KoggoInvestments.ServiceDefaults;
 using KoggoInvestments.Worker;
 
 var builder = Host.CreateApplicationBuilder(args);

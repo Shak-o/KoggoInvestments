@@ -21,6 +21,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoggoInvestments.ServiceDef
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoggoInvestments.UI", "KoggoInvestments.UI\KoggoInvestments.UI.csproj", "{E8B66DDA-A05B-4A41-955C-CE1336138F34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Infrastructure", "KoggoInvestments.Infrastructure\KoggoInvestments.Infrastructure.csproj", "{A9339864-909B-43FA-B985-4BE8481F294E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Persistence", "KoggoInvestments.Persistence\KoggoInvestments.Persistence.csproj", "{21DD3F93-7C49-46B9-82BE-AFD80E05B083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Application", "KoggoInvestments.Application\KoggoInvestments.Application.csproj", "{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoggoInvestments.Domain", "KoggoInvestments.Domain\KoggoInvestments.Domain.csproj", "{BB48E961-E348-4079-9064-B31E86D243EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +57,22 @@ Global
 		{E8B66DDA-A05B-4A41-955C-CE1336138F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8B66DDA-A05B-4A41-955C-CE1336138F34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8B66DDA-A05B-4A41-955C-CE1336138F34}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A9339864-909B-43FA-B985-4BE8481F294E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9339864-909B-43FA-B985-4BE8481F294E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9339864-909B-43FA-B985-4BE8481F294E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9339864-909B-43FA-B985-4BE8481F294E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DD3F93-7C49-46B9-82BE-AFD80E05B083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DD3F93-7C49-46B9-82BE-AFD80E05B083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DD3F93-7C49-46B9-82BE-AFD80E05B083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DD3F93-7C49-46B9-82BE-AFD80E05B083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB48E961-E348-4079-9064-B31E86D243EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB48E961-E348-4079-9064-B31E86D243EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB48E961-E348-4079-9064-B31E86D243EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB48E961-E348-4079-9064-B31E86D243EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +83,9 @@ Global
 		{AA32AAFC-A7A6-42CC-91CB-1A93F526B8EA} = {025310A2-E4D4-4CAD-AA7A-BC8641F24350}
 		{74C92A8E-A202-458E-8C61-33842EFA0308} = {025310A2-E4D4-4CAD-AA7A-BC8641F24350}
 		{E8B66DDA-A05B-4A41-955C-CE1336138F34} = {99D6067C-2BF6-42DC-A796-8402EAEB5729}
+		{A9339864-909B-43FA-B985-4BE8481F294E} = {15ACE3D2-0DCF-4AFE-9FD5-D2E7BC19D9D6}
+		{21DD3F93-7C49-46B9-82BE-AFD80E05B083} = {15ACE3D2-0DCF-4AFE-9FD5-D2E7BC19D9D6}
+		{B31AF7B9-29FF-4920-BF93-6D44F60CE8DB} = {CF7F5032-F2D1-493E-AD56-5E86060DBF50}
+		{BB48E961-E348-4079-9064-B31E86D243EB} = {CF7F5032-F2D1-493E-AD56-5E86060DBF50}
 	EndGlobalSection
 EndGlobal
