@@ -12,7 +12,7 @@ public class StockInfoSyncer(IServiceProvider serviceProvider) : BackgroundServi
             using var scope = serviceProvider.CreateScope();
             var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
             
-            var query = new GetAllStockInfoQuery();
+            var query = new SetStockInfoCommand();
             var result = await mediator.Send(query, cancellationToken: stoppingToken);
             
             await Task.Delay(TimeSpan.FromDays(1), stoppingToken);

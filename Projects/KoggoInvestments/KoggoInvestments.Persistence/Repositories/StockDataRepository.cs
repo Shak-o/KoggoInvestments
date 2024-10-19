@@ -1,17 +1,24 @@
 ﻿using KoggoInvestments.Application.RepositoryInterfaces;
 using KoggoInvestments.Domain.Stocks;
+using MongoDB.Driver;
 
 namespace KoggoInvestments.Persistence.Repositories;
 
-public class StockDataRepository : IStockDataRepository
+public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepository
 {
-    public async Task<List<StockInfo>?> GetStockDataAsync()
+    public async Task<List<StockDetails>> GetStockDataAsync()
     {
-        return null;
+        var db = mongoClient.GetDatabase("KoggoDb");
+        var collection = db.GetCollection<StockDetails>("StockDetails");
+        var result = await collection.Find(s => true).ToListAsync();
+        return result;
     }
 
-    public Task SaveStockDataAsync(List<StockInfo> stockData)
+    public async Task SaveStockDataAsync(StockDetails stockDetails)
     {
-        return Task.CompletedTask;
+        var db = mongoClient.GetDatabase("KoggoDb");
+        var collection = db.GetCollection<StockDetails>("StockDetails");
+        
+        await collection.InsertOneAsync(stockDetails);
     }
 }

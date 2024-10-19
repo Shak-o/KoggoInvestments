@@ -4,6 +4,6 @@ namespace KoggoInvestments.Application.RepositoryInterfaces;
 
 public interface IStockDataRepository
 {
-    Task<List<StockInfo>?> GetStockDataAsync();
-    Task SaveStockDataAsync(List<StockInfo> stockData);
+    Task<List<StockDetails>> GetStockDataAsync();
+    Task SaveStockDataAsync(StockDetails stockData);
 }
