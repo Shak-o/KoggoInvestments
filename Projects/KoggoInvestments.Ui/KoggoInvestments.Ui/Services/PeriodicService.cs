@@ -24,17 +24,14 @@ namespace KoggoInvestments.UI.Services
         public void StartService()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            MakeServiceRequest();
-
-
-            //Task.Run(async () =>
-            //{
-            //    while (!_cancellationTokenSource.Token.IsCancellationRequested)
-            //    {
-            //        await MakeServiceRequest().ConfigureAwait(false);
-            //        await Task.Delay(5000, _cancellationTokenSource.Token).ConfigureAwait(false); 
-            //    }
-            //}, _cancellationTokenSource.Token);
+            Task.Run(async () =>
+            {
+                while (!_cancellationTokenSource.Token.IsCancellationRequested)
+                {
+                    await MakeServiceRequest().ConfigureAwait(false);
+                    await Task.Delay(2500, _cancellationTokenSource.Token).ConfigureAwait(false);
+                }
+            }, _cancellationTokenSource.Token);
         }
 
         public void StopService()
@@ -42,11 +39,11 @@ namespace KoggoInvestments.UI.Services
             _cancellationTokenSource.Cancel();
         }
 
-        private  void MakeServiceRequest()
+        private async Task MakeServiceRequest()
         {
             try
             {
-                var result =  apiClient.GetMarketInfoAsync();
+                var result = await apiClient.GetMarketInfoAsync();
                 NotifyUser(result);
 
             }

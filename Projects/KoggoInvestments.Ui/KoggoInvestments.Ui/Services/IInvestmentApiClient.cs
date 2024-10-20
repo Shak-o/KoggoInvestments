@@ -10,7 +10,6 @@ namespace KoggoInvestments.Ui.Services
 {
     public interface IInvestmentApiClient
     {
-        //Task<List<CheckStatusResponse>> GetMarketInfoAsync();
-        List<CheckStatusResponse> GetMarketInfoAsync();
+        Task<List<CheckStatusResponse>> GetMarketInfoAsync();
     }
 }

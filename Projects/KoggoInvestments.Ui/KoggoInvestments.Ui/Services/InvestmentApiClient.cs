@@ -40,17 +40,17 @@ namespace KoggoInvestments.Ui.Services
             return handler;
         }
 
-        public List<CheckStatusResponse> GetMarketInfoAsync()
+        public async Task<List<CheckStatusResponse>> GetMarketInfoAsync()
         {
             Items = new List<CheckStatusResponse>();
 
             Uri uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
             try
             {
-                HttpResponseMessage response = _client.GetAsync(uri).Result;
+                HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
-                    string content = response.Content.ReadAsStringAsync().Result;
+                    string content = await response.Content.ReadAsStringAsync();
                     Items = JsonSerializer.Deserialize<List<CheckStatusResponse>>(content, _serializerOptions);
                 }
             }
