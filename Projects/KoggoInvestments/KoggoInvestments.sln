@@ -30,6 +30,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{D9F4269D-2AD6-4A9A-A005-1E44C2E918A9}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\Extras\speech.md = ..\..\Extras\speech.md
+		..\..\Extras\speech_ge.md = ..\..\Extras\speech_ge.md
 	EndProjectSection
 EndProject
 Global

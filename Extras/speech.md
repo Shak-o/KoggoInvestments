@@ -17,7 +17,6 @@ We've integrated a customizable notification system into the investments page of
 - **Empowered Users:** Investors stay ahead with minimal effort.
 - **Enhanced Engagement:** The app becomes an indispensable tool in their financial journey.
 
-
 **While keeping investors informed is crucial, we believe that an exceptional banking app should be accessible to all users, regardless of their abilities.**
 
 **That's why we've also focused on enhancing accessibility features to make the app more user-friendly for individuals with vision impairments.**
@@ -54,12 +53,14 @@ Standard color schemes in apps can be challenging for colorblind users and those
 - **Customer Loyalty:** Users are more likely to stay with a bank that caters to their needs.
 
 ---
+include what can be done more
 
 ### **4. Technical Excellence**
 
 - **Seamless Integration:** Added features blend smoothly with the existing app without affecting performance.
 - **User-Friendly Interface:** Intuitive settings make customization easy for all users.
 - **Scalable Framework:** Built to accommodate future enhancements like additional accessibility options or more detailed notification settings.
+
 
 
 ### **5. Real-Life Scenarios**
