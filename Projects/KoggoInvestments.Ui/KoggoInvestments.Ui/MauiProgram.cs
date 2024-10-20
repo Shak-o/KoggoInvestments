@@ -1,4 +1,7 @@
-﻿using KoggoInvestments.Ui.Notifications;
+﻿using KoggoInvestments.Ui.Models;
+using KoggoInvestments.Ui.Notifications;
+using KoggoInvestments.Ui.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace KoggoInvestments.Ui
@@ -8,6 +11,7 @@ namespace KoggoInvestments.Ui
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -22,6 +26,7 @@ namespace KoggoInvestments.Ui
 #if ANDROID
             builder.Services.AddSingleton<INotificationManagerService, KoggoInvestments.Ui.Platforms.Android.NotificationManagerService>();
 #endif
+            builder.Services.AddSingleton<IInvestmentApiClient, InvestmentApiClient>();
 
             return builder.Build();
         }

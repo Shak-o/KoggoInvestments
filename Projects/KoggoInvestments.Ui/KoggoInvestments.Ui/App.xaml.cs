@@ -1,4 +1,5 @@
 ﻿using KoggoInvestments.Ui.Notifications;
+using KoggoInvestments.Ui.Services;
 using KoggoInvestments.UI.Services;
 
 namespace KoggoInvestments.Ui
@@ -8,13 +9,13 @@ namespace KoggoInvestments.Ui
         private PeriodicService _periodicService;
         private readonly INotificationManagerService notificationManagerService;
 
-        public App(INotificationManagerService notificationManagerService)
+
+        public App(INotificationManagerService notificationManagerService, IInvestmentApiClient investmentApiClient)
         {
             InitializeComponent();
 
             MainPage = new AppShell();
-            _periodicService = new PeriodicService(notificationManagerService);
-            notificationManagerService = notificationManagerService;
+            _periodicService = new PeriodicService(notificationManagerService, investmentApiClient);
         }
 
         protected override void OnStart()

@@ -7,7 +7,7 @@
         <WebView x:Name="WikiView"
                  VerticalOptions="FillAndExpand"
                  HorizontalOptions="FillAndExpand"
-                 Source="http://34.201.114.161:7777"/>
+                 Source="http://44.207.32.191:5173"/>
     </VerticalStackLayout>
 </ContentPage>
    

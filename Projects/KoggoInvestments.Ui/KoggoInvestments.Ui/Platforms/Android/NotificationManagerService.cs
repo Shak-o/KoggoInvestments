@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using AndroidX.Core.App;
+using KoggoInvestments.Ui.Models;
 using KoggoInvestments.Ui.Notifications;
 
 namespace KoggoInvestments.Ui.Platforms.Android

@@ -1,4 +1,5 @@
-﻿using KoggoInvestments.Ui.Notifications;
+﻿using KoggoInvestments.Ui.Models;
+using KoggoInvestments.Ui.Notifications;
 #if ANDROID
 using KoggoInvestments.Ui.Platforms.Android;
 #endif
