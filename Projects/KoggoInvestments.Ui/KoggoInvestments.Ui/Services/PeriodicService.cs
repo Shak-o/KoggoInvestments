@@ -29,7 +29,7 @@ namespace KoggoInvestments.UI.Services
                 while (!_cancellationTokenSource.Token.IsCancellationRequested)
                 {
                     await MakeServiceRequest().ConfigureAwait(false);
-                    await Task.Delay(2500, _cancellationTokenSource.Token).ConfigureAwait(false);
+                    await Task.Delay(1000, _cancellationTokenSource.Token).ConfigureAwait(false);
                 }
             }, _cancellationTokenSource.Token);
         }
