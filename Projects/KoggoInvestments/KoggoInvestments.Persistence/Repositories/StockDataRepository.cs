@@ -58,6 +58,7 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
             lastId = firstBarInfo.Id;
 
             var maxId = await GetMaxAccessIdAsync();
+            maxId++;
             await accessorCollection.InsertOneAsync(new AccessModel()
                 { Id = ++maxId, StockIdentifier = stockIdentifier, LastAccessedId = lastId });
 
@@ -81,7 +82,7 @@ public class StockDataRepository(IMongoClient mongoClient) : IStockDataRepositor
     private async Task<int> GetMaxAccessIdAsync()
     {
         var sort = Builders<AccessModel>.Sort.Descending(x => x.Id);
-        var collectionName = $"{nameof(AccessModel)}";
+        var collectionName = $"LastAccessedStamp";
         var collection = _db.GetCollection<AccessModel>(collectionName);
         var result = await collection.Find(s => true)
             .Sort(sort)
